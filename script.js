@@ -1,6 +1,10 @@
 const imgs = document.querySelectorAll('.header-slider ul img')
 const prev_btn = document.querySelector('.control-prev')
 const next_btn = document.querySelector('.control-next')
+const scrollContainer = document.querySelector('.products');
+
+
+// header slider
 
 let n = 0;
 
@@ -28,3 +32,12 @@ next_btn.addEventListener('click', (e) => {
     }
     changeSlide();
 })
+
+// card slider
+
+for (const item of scrollContainer){
+    item.addEventListener('wheel', (evt) => {
+        evt.preventDefault();
+        item.scrollLeft += evt.deltaY;
+    })
+}
